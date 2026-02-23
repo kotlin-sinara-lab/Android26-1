@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.9.0"
+    kotlin("jvm") version "1.9.22"
     application
 }
 
@@ -11,8 +11,18 @@ repositories {
 }
 
 dependencies {
+    // CSV parsing
+    implementation("com.opencsv:opencsv:5.9")
+
+    // Kandy visualisation
+    implementation("org.jetbrains.kotlinx:kandy-lets-plot:0.7.0")
+    implementation("org.jetbrains.lets-plot:lets-plot-batik:4.3.3")
+    implementation("org.jetbrains.lets-plot:lets-plot-kotlin-kernel:4.7.3")
+
+    // Testing
     testImplementation(kotlin("test"))
-    implementation("com.github.javafaker:javafaker:1.0.2")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.10.2")
+    testImplementation("io.mockk:mockk:1.13.10")
 }
 
 tasks.test {
@@ -20,7 +30,7 @@ tasks.test {
 }
 
 kotlin {
-    jvmToolchain(8)
+    jvmToolchain(21)
 }
 
 application {

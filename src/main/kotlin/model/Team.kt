@@ -1,3 +1,9 @@
 package model
 
-class Team
+/**
+ * Представляет футбольную команду.
+ */
+data class Team(
+    val name: String,
+    val city: String,
+)
